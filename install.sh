@@ -26,7 +26,8 @@ else
     if $expected_to_fail ; then
         echo "This version of node.js ($node_version) is known to fail."
     else
-        echo "node.js"
+        echo "node.js ($node_version) failed - please leave an issue at:"
+        echo "https://github.com/felixrabe/node-webkit-with-fibers/issues"
         exit 1
     fi
 fi
