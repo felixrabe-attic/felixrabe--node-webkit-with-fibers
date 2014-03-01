@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>node-webkit + node-fibers</title>
+<meta charset="utf-8"/>
+</head>
+<body>
+<h1>node-webkit + node-fibers</h1>
+<script>
+var Fiber = require('fibers');
+
+function log(msg) {
+    // console.log(msg);
+    var div = document.createElement('div');
+    var text = document.createTextNode(msg);
+    div.appendChild(text);
+    document.body.insertBefore(div, null);
+}
+
+function sleep(ms) {
+  var fiber = Fiber.current;
+  setTimeout(function() {
+    fiber.run();
+  }, ms);
+  Fiber.yield();
+}
+
+Fiber(function() {
+  log('wait...' + new Date);
+  sleep(1000);
+  log('ok...' + new Date);
+}).run();
+
+log('back in main');
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+--- ./node_modules/fibers/src/coroutine.cc-0	2014-03-01 22:05:44.000000000 +0100
++++ ./node_modules/fibers/src/coroutine.cc	2014-03-01 22:05:55.000000000 +0100
+@@ -40,7 +40,7 @@
+ 	v8::Locker locker(isolate);
+ 	assert(isolate != NULL);
+ 	floor_thread_key = 0x7777;
+-	for (pthread_key_t ii = coro_thread_key - 1; ii >= (coro_thread_key >= 20 ? coro_thread_key - 20 : 0); --ii) {
++	for (pthread_key_t ii = coro_thread_key - 1; ii >= (coro_thread_key >= 30 ? coro_thread_key - 30 : 0); --ii) {
+ 		if (pthread_getspecific(ii) == isolate) {
+ 			floor_thread_key = ii;
+ 			break;

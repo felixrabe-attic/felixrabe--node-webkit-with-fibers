@@ -1,0 +1,7 @@
+{
+  "name": "node-webkit-with-fibers",
+  "main": "index.html",
+  "dependencies": {
+    "fibers": "git://github.com/laverdet/node-fibers#d1d59a9f55e269"
+  }
+}
