@@ -16,11 +16,11 @@ fi
 if [ -x /usr/local/bin/nw-gyp ] ; then
     : # fine
 else
-    echo sudo npm install -g nw-gyp
-         sudo npm install -g nw-gyp
+    echo sudo npm install -g nw-gyp "$@"
+         sudo npm install -g nw-gyp "$@"
 fi
 
-if npm install ; then
+if npm install "$@"; then
     : # fine
 else
     if $expected_to_fail ; then
